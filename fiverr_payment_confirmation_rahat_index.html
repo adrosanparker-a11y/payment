@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiverr Payment Confirmation — Rahat</title>
+  <style>
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;background:linear-gradient(135deg,#0f172a,#0b1220);color:#e6eef6;display:flex;justify-content:center;align-items:center;height:100vh}
+    .card{background:rgba(255,255,255,0.05);padding:40px;border-radius:20px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.7);max-width:400px;width:90%;animation:fadeIn 1s ease-out}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    .fiverr-logo{width:120px;margin:0 auto 20px;}
+    .fiverr-logo img{width:100%}
+    .icon{font-size:50px;color:#1dbf73;margin-bottom:15px;animation:iconPop 0.8s ease-out}
+    @keyframes iconPop{0%{transform:scale(0)}80%{transform:scale(1.2)}100%{transform:scale(1)}}
+    h1{margin:0;font-size:1.8rem;color:#fff}
+    p{margin:10px 0;font-size:1rem;color:#bcd9db}
+    .amount{font-size:2rem;font-weight:700;color:#1dbf73;margin:15px 0;animation:amountCount 2s ease-out}
+    @keyframes amountCount{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+    .progress-container{background:rgba(255,255,255,0.1);border-radius:12px;margin:20px 0;overflow:hidden;height:18px}
+    .progress-bar{height:100%;width:0%;background:#1dbf73;border-radius:12px;animation:fillProgress 3s forwards}
+    @keyframes fillProgress{0%{width:0}100%{width:100%}}
+    .btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:600;background:#1dbf73;color:#fff;transition:0.3s}
+    .btn:hover{background:#16a35b}
+    .countdown{font-size:1.1rem;color:#bcd9db;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="fiverr-logo">
+      <img src="https://assets-global.website-files.com/5f7b6c2e5f49c4420f72d0b3/5f7b6c2e5f49c42b7c72d0c1_fiverr-logo.svg" alt="Fiverr Logo">
+    </div>
+    <div class="icon">✔️</div>
+    <h1>Payment Confirmed!</h1>
+    <p>Your <span class="amount">$50</span> has been received via Fiverr</p>
+    <p>Expected arrival: <strong>15–20 working days</strong></p>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="countdown">Days remaining: <span id="days">20</span></div>
+    <a class="btn" href="#">Back to Dashboard</a>
+  </div>
+  <script>
+    let days = 20;
+    const dayElement = document.getElementById('days');
+    setInterval(()=>{
+      if(days>0){
+        days--;
+        dayElement.textContent = days;
+      }
+    },1000*60*60*24); // decrease 1 day every 24 hours
+  </script>
+</body>
+</html>
